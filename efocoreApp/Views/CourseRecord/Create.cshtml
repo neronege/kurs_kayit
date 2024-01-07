@@ -1,0 +1,21 @@
+﻿@model CourseRecord
+
+<h2>Kurs Kayıt Ekle </h2>
+<hr />
+
+<form asp-controller="CourseRecord" asp-action="Create" method="post">
+    <div class="mb-3">
+        <label class="form-label" asp-for="StudentId">Öğrenci</label>
+        <select asp-for="StudentId" asp-items="ViewBag.Students" class="form-control">
+            <option>Seçiniz</option>
+        </select>
+        <label asp-controller="CourseRecord" class="form-label" asp-for="CourseId">Kurs</label>
+        <select asp-for="CourseId" asp-items="ViewBag.Courses" class="form-control">
+            <option>Seçiniz</option>
+        </select>
+        
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+</form>

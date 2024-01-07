@@ -1,0 +1,47 @@
+﻿@model Student
+
+    <div class="row">
+        <div class="col-8">
+            <h2>Öğrenci Güncelle</h2>
+            <hr />
+            <form asp-controller="Student" asp-action="Edit" method="post">
+                <input type="hidden" asp-for="StudentId" />
+                <div class="mb-3">
+                    <label class="form-label" asp-for="Name">ÖğrenciAdı</label>
+                    <input class="form-control" asp-for="Name" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" asp-for="LastName">ÖğrenciSoyadı</label>
+                    <input class="form-control" asp-for="LastName" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" asp-for="Email">Eposta</label>
+                    <input class="form-control" asp-for="Email" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" asp-for="Phone">Telefon Numarası</label>
+                    <input class="form-control" asp-for="Phone" />
+                </div>
+
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+            </form>
+        </div>
+        <div class="col-4">
+            <h4>
+                Kurslar
+            </h4>
+            <hr />
+            <ul>
+                @foreach (var item in Model.CourseRecords)
+                {
+                     <form >
+                         <input class="form-control" asp-for="@item.course.Title" />
+                     </form>
+                
+                   
+                }
+
+            </ul>
+
+        </div>
+    </div>

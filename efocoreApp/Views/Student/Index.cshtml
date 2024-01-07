@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Student>
+
+
+            <h2>Öğrenci Listesi</h2>
+            <hr />
+            <a href="/Student/Create" class="btn btn-primary">Öğrenci Ekle</a>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Ogrenci Id</th>
+                        <th>Ogrenci Ad</th>
+                        <th>Ogrenci Soyad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.StudentId</td>
+                            <td>@item.Name</td>
+                            <td>@item.LastName</td>
+                            <td>
+                                <a asp-controller="Student" asp-action="Edit" asp-route-id="@item.StudentId" class="btn btn-sm btn-primary">Details</a>
+                                <a asp-controller="Student" asp-action="Delete" asp-route-id="@item.StudentId" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+     

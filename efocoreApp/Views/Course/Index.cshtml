@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Course>
+
+<h2>Kurs Listesi</h2>
+<hr />
+<a href="/Course/Create" class="btn btn-primary">Kurs Ekle</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Kurs Id</th>
+            <th>Başlık</th>
+  >
+           
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CourseId</td>
+                <td>@item.Title</td>
+            
+              
+                <td>
+                    <a asp-controller="Course" asp-action="Edit" asp-route-id="@item.CourseId" class="btn btn-sm btn-primary">Details</a>
+                    <a asp-controller="Course" asp-action="Delete" asp-route-id="@item.CourseId" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

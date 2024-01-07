@@ -1,0 +1,9 @@
+﻿@model Student
+
+<b>@Model.Name @Model.LastName</b> <span>Silmek istediğinizden emin misiniz?</span>
+<br />
+<form asp-controller="Student" asp-action="Delete" method="post">
+    <input type="hidden" asp-for="@Model.StudentId" />
+    <button type="submit" class="btn btn-danger">Evet</button>
+    <a asp-action="Index" class="btn btn-secondary">Hayır</a>
+</form>
